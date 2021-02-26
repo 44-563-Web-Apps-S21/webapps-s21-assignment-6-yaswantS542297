@@ -9,36 +9,66 @@
 <body>
 
 <h2>Hidden Things by Yaswant Lakkaraju</h2>
-
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="form1_credentials">Enter the secret word</label>
+    <input type ="password" id="form1_credentials" name="form1_credentials" min=10 max=50 step=2 value="Secret"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="form1_guess">Enter a guess</label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="processGuess()" value="Check the guess">
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result">The results are displayed</p>
 
 <script> 
-
-function resolveForm (){
+var correct = 0;
+var wrong = 0;
+function processGuess(){
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
+    password = document.getElementById("form1_credentials").value
+    guess = document.getElementById("form1_guess").value
     out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
+    if(password==guess){
+        correct+=1;
+        alert("Congratualtions")
+        out.innerHTML = "Correct count is:"+correct
     } else {
-        out.innerHTML = "Values were not confirmed"
+        wrong+=1;
+        alert("Sorry")
+        out.innerHTML = "Wrong count is:"+wrong
     }
 }
 </script>
-
+<div class = "container">
+    <img id="myPlant" src="KALMIA.jpg" alt="Check Internet Connection" width=200 height=200 onclick="rotateImage()">
+</div>
+<script>
+    var currentImage = 0;
+    function rotateImage(){
+    switch(currentImage){
+        case 0:
+            document.getElementById("myPlant").src="KALMIA.jpg"
+            currentImage+=1
+            alert("The value of curentImage is:"+currentImage)
+            break;
+        case 1:
+            document.getElementById("myPlant").src="LANTANA.jpg"
+            currentImage+=1
+            alert("The value of curentImage is:"+currentImage)
+            break;
+        case 2:
+            document.getElementById("myPlant").src="ABELIA.jpg"
+            currentImage+=1
+            alert("The value of curentImage is:"+currentImage)
+            break;
+        default:
+            currentImage = 0;
+            document.getElementById("myPlant").src="KALMIA.jpg"
+            alert("The value of curentImage is:"+currentImage)
+    }
+}
+</script>
 </body>
 </html> 
