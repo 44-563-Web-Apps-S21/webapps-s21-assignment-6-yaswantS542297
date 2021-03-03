@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bear</title>
+
+</head>
+
+<body>
+
+    <h2>Yaswant Lakkaraju bear </h2>
+
+    <form >
+        <input type="checkbox" id="hat" name="hat" value=hat>
+            <label for="hat">hat </label>
+            <br>
+
+            
+            <input type="checkbox" id="scarf" name="scarf" value=scarf> 
+            <label for="scarf">Scarf </label>
+           <br>
+
+           <input type="checkbox" id="shirt" name="shirt" value="shirt">
+           <label for="shirt">Shirt</label>
+             <br>
+
+            <input type="button" onclick="startBear()" value="Start a bear">
+       
+    </form>
+
+    <p id="result">This text will be replaced </p>
+
+    <form>
+
+        <label for="property">Enter a property </label>
+        <input type="text" id="property" name="property" value="color"> <br>
+
+        <label for="value">Enter a value </label>
+        <input type="text" id="value" name="value"> <br>
+
+        <input type="button" onclick="updatebear()" value="Update the bear">
+    </form>
+
+
+
+    <p id="result2">This text will be replaced </p>
+
+    <script>
+        var my_bear;
+        function startBear() {
+
+            my_bear = "";
+
+            hat_checked = document.getElementById("hat").checked
+            scarf_checked = document.getElementById("scarf").checked
+            shirt_checked = document.getElementById("shirt").checked
+            my_bear = "hat : " + hat_checked + " scarf: " + scarf_checked + " shirt: " + shirt_checked;
+
+            output = document.getElementById("result")
+
+            output.innerHTML = my_bear
+        }
+
+        function updatebear() {
+            my_bear = "";
+            output = document.getElementById("result2")
+            property = document.getElementById("property").value
+            value = document.getElementById("value").value
+            my_bear = property + ":" + value;
+            output.innerHTML = my_bear
+        }
+
+    </script>
+
+</body>
+
+</html>
